@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import ClickOutside from "vue-click-outside";
 import CreateEditForm from "./CreateEditForm.vue";
 
 export default {
@@ -47,9 +46,6 @@ export default {
   },
   components: {
     CreateEditForm,
-  },
-  directives: {
-    ClickOutside,
   },
 };
 </script>
