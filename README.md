@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # todo-app
+=======
+# app-todo
+>>>>>>> aad1f156fcbd95be9b978ccec3be784f039df64d
 
 ## Project setup
 ```
