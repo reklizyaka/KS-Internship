@@ -22,8 +22,8 @@ export default {
   props: {
     notes: Array,
     onRemove: Function,
-    onEdit: Function
-  }
+    onEdit: Function,
+  },
 };
 </script>
 
@@ -77,7 +77,6 @@ ol > li {
   width: 25%;
   height: 45%;
   margin: 20px 30px;
-  /* text-align: left; */
   border-radius: 15px;
   border: 2px solid #2c3e50;
 }

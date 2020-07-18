@@ -1,16 +1,15 @@
 <template>
   <div class="drawer-mask">
-    <div class="drawer-wrapper" ref="box">
-      <div class="drawer-container">
-        <div class="drawer-body">
-          <CreateEditForm
-            :value="data"
-            :onSubmit="data ? editAction : addAction"
-          />
-        </div>
-        <div class="drawer-footer">
-          <button class="close-btn" @click="$emit('close')">X</button>
-        </div>
+    <div class="draver__overlay" @click="$emit('close')"></div>
+    <div class="drawer-container">
+      <div class="drawer-body">
+        <CreateEditForm
+          :value="data"
+          :onSubmit="data ? editAction : addAction"
+        />
+      </div>
+      <div class="drawer-footer">
+        <button class="close-btn" @click="$emit('close')">X</button>
       </div>
     </div>
   </div>
@@ -67,28 +66,31 @@ input {
 }
 
 .drawer-mask {
-  position: absolute;
+  position: fixed;
   z-index: 100;
-  top: 0;
+  top: 40px;
   left: 0;
-  width: 100%;
+  right: 0;
+  bottom: 0;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
   display: table;
   transition: opacity 0.3s ease;
 }
 
-.drawer-wrapper {
-  display: table-cell;
-  vertical-align: middle;
+.draver__overlay {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  z-index: 20;
+  right: 0;
+  bottom: 0;
+  z-index: 19;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .drawer-container {
+  position: relative;
+  z-index: 20;
   width: 300px;
   height: 100%;
   padding: 20px 30px;

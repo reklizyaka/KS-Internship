@@ -10,14 +10,14 @@
           <ListNotes :notes="notes" :onEdit="setEditMode" :onRemove="remove" />
         </div>
         <button class="add-btn" @click="toggleModal(true)">+</button>
-        <Drawer
-          :addAction="add"
-          :editAction="editComplete"
-          :data="editNote"
-          v-if="showModal"
-          @close="toggleModal(false)"
-        />
       </div>
+      <Drawer
+        :addAction="add"
+        :editAction="editComplete"
+        :data="editNote"
+        v-if="showModal"
+        @close="toggleModal(false)"
+      />
     </div>
   </div>
 </template>
@@ -89,9 +89,6 @@ export default {
     toggleModal(value) {
       this.showModal = value;
     },
-    clearLocalStorage: function() {
-      localStorage.clear();
-    },
   },
 };
 </script>
@@ -103,9 +100,16 @@ export default {
 }
 
 .header {
+  z-index: 101;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
   border: 2px solid #c6ccd8;
   background-color: #fff;
-  height: 40px;
+  height: 60px;
   border-radius: 10px;
   margin-bottom: 50px;
   padding: 10px 30px;
@@ -145,12 +149,13 @@ export default {
 
 .task-board {
   position: relative;
-  height: 500px;
+  min-height: 500px;
   background-color: #fff;
   border: 2px solid #c6ccd8;
   border-radius: 15px;
   overflow: hidden;
   padding: 30px;
+  margin: 70px 16px 30px;
 }
 
 .task-card {
@@ -167,7 +172,6 @@ export default {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  overflow: auto;
 }
 
 .task-list > li {
