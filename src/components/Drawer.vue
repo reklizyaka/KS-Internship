@@ -3,10 +3,7 @@
     <div class="draver__overlay" @click="$emit('close')"></div>
     <div class="drawer-container">
       <div class="drawer-body">
-        <CreateEditForm
-          :value="data"
-          :onSubmit="data ? editAction : addAction"
-        />
+        <CreateEditForm :value="data" :onSubmit="data ? editAction : addAction" />
       </div>
       <div class="drawer-footer">
         <button class="close-btn" @click="$emit('close')">X</button>
@@ -23,29 +20,11 @@ export default {
   props: {
     addAction: Function,
     editAction: Function,
-    data: Object,
-  },
-  events: {
-    closeModal() {
-      console.log(this);
-    },
-  },
-  mounted() {
-    document.addEventListener("click", this.close);
-  },
-  destroyed() {
-    document.removeEventListener("click", this.close);
-  },
-  methods: {
-    close({ target }) {
-      if (target.contains(this.$refs.box)) {
-        this.$emit("close");
-      }
-    },
+    data: Object
   },
   components: {
-    CreateEditForm,
-  },
+    CreateEditForm
+  }
 };
 </script>
 

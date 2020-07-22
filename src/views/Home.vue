@@ -32,14 +32,14 @@ export default {
   name: "Home",
   components: {
     Drawer,
-    ListNotes,
+    ListNotes
   },
   data() {
     return {
       notes: JSON.parse(localStorage.getItem("notes")) || [],
       showModal: false,
       editNote: null,
-      userEmail: localStorage.getItem("login"),
+      userEmail: localStorage.getItem("login")
     };
   },
   created() {
@@ -53,7 +53,7 @@ export default {
       const newNote = {
         id: shortid(),
         title,
-        description,
+        description
       };
 
       this.notes.push(newNote);
@@ -70,6 +70,7 @@ export default {
       this.notes.splice(index, 1, { id, ...note });
       this.setEditMode(null);
       this.save();
+      this.toggleModal(false);
     },
     remove(id) {
       const index = this.getNoteById(id);
@@ -88,8 +89,8 @@ export default {
     },
     toggleModal(value) {
       this.showModal = value;
-    },
-  },
+    }
+  }
 };
 </script>
 

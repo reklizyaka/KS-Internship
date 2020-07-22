@@ -1,13 +1,13 @@
 <template>
-  <button @click="callback($event)">{{ text }}</button>
+  <button @click="callback($event)"></button>
 </template>
 
 <script>
 export default {
   name: "Button",
-  props: {
-    text: String
-  },
+  // props: {
+  //   text: String
+  // },
   methods: {
     callback(e) {
       this.$emit("click", e);
